@@ -11,11 +11,11 @@ include_once '../platos.php';
 $database = new Database();
 $db = $database->getConnection();
 $item = new Plato($db);
-$item->id = isset($_GET['IdPlato']) ? $_GET['IdPlato'] : die();
+$item->IdPlato = isset($_GET['IdPlato']) ? $_GET['IdPlato'] : die();
 $item->getSinglePlato();
 if ($item->Nombre != null) {
 
-
+    // create array
     $emp_arr = array(
         "IdPlato" => $item->IdPlato,
         "Nombre" => $item->Nombre,
@@ -28,5 +28,5 @@ if ($item->Nombre != null) {
     echo json_encode($emp_arr);
 } else {
     http_response_code(404);
-    echo json_encode("Employee not found.");
+    echo json_encode("Plato not found.");
 }

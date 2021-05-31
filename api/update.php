@@ -13,10 +13,9 @@ $db = $database->getConnection();
 $item = new Plato($db);
 
 $item->IdPlato = isset($_GET['IdPlato']) ? $_GET['IdPlato'] : die();
-$item->Dombre = $_GET['Nombre'];
+$item->Nombre = $_GET['Nombre'];
 $item->Descripcion = $_GET['Descripcion'];
 $item->Precio = $_GET['Precio'];
-$item->Imagen = $_GET['Imagen'];
 $item->Creado = date('Y-m-d H:i:s');
 if ($item->updatePlato()){
     echo json_encode("Plato data updated");
